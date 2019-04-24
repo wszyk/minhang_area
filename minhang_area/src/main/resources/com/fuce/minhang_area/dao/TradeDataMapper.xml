@@ -22,6 +22,12 @@
     id, areaId, avgPrice, createTime, dateTime, flg, industry, mids, sales, salesNums, 
     tradeCode, tradeId, tradeName, mcc
   </sql>
+<!--  selectWithPage-->
+  <select id="selectWithPage"  resultMap="BaseResultMap">
+    SELECT td.id, td.areaId, a.areaName, td.tradeId, td.tradeCode, td.tradeName, td.dateTime,
+  td.industry, td.sales, td.salesNums, td.mids, td.avgPrice, td.flg, td.createTime, td.mcc
+  FROM trade_data td, area a
+  </select>
 <!--  getAll-->
   <select id="getAll"  resultMap="BaseResultMap">
  SELECT td.id, td.areaId, a.areaName, td.tradeId, td.tradeCode, td.tradeName, td.dateTime,

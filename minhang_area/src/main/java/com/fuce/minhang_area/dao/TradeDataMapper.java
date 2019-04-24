@@ -2,6 +2,7 @@ package com.fuce.minhang_area.dao;
 
 import com.fuce.minhang_area.DTO.TradeDataDTO;
 import com.fuce.minhang_area.pojo.TradeData;
+import com.github.pagehelper.Page;
 
 import java.util.List;
 
@@ -19,4 +20,6 @@ public interface TradeDataMapper {
     int updateByPrimaryKey(TradeData record);
 
     List<TradeDataDTO> getAll();
+
+    Page<TradeDataDTO> selectWithPage();
 }
