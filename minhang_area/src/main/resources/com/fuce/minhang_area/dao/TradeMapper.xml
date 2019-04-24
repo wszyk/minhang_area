@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fuce.minhang_area.dao.TradeMapper">
+  <resultMap id="BaseResultMap" type="com.fuce.minhang_area.pojo.Trade">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="areaId" jdbcType="INTEGER" property="areaid" />
+    <result column="flg" jdbcType="INTEGER" property="flg" />
+    <result column="lat" jdbcType="DOUBLE" property="lat" />
+    <result column="lng" jdbcType="DOUBLE" property="lng" />
+    <result column="tradeCode" jdbcType="VARCHAR" property="tradecode" />
+    <result column="tradeName" jdbcType="VARCHAR" property="tradename" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, areaId, flg, lat, lng, tradeCode, tradeName
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from trade
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from trade
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fuce.minhang_area.pojo.Trade">
+    insert into trade (id, areaId, flg, 
+      lat, lng, tradeCode, 
+      tradeName)
+    values (#{id,jdbcType=INTEGER}, #{areaid,jdbcType=INTEGER}, #{flg,jdbcType=INTEGER}, 
+      #{lat,jdbcType=DOUBLE}, #{lng,jdbcType=DOUBLE}, #{tradecode,jdbcType=VARCHAR}, 
+      #{tradename,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fuce.minhang_area.pojo.Trade">
+    insert into trade
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="areaid != null">
+        areaId,
+      </if>
+      <if test="flg != null">
+        flg,
+      </if>
+      <if test="lat != null">
+        lat,
+      </if>
+      <if test="lng != null">
+        lng,
+      </if>
+      <if test="tradecode != null">
+        tradeCode,
+      </if>
+      <if test="tradename != null">
+        tradeName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="areaid != null">
+        #{areaid,jdbcType=INTEGER},
+      </if>
+      <if test="flg != null">
+        #{flg,jdbcType=INTEGER},
+      </if>
+      <if test="lat != null">
+        #{lat,jdbcType=DOUBLE},
+      </if>
+      <if test="lng != null">
+        #{lng,jdbcType=DOUBLE},
+      </if>
+      <if test="tradecode != null">
+        #{tradecode,jdbcType=VARCHAR},
+      </if>
+      <if test="tradename != null">
+        #{tradename,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fuce.minhang_area.pojo.Trade">
+    update trade
+    <set>
+      <if test="areaid != null">
+        areaId = #{areaid,jdbcType=INTEGER},
+      </if>
+      <if test="flg != null">
+        flg = #{flg,jdbcType=INTEGER},
+      </if>
+      <if test="lat != null">
+        lat = #{lat,jdbcType=DOUBLE},
+      </if>
+      <if test="lng != null">
+        lng = #{lng,jdbcType=DOUBLE},
+      </if>
+      <if test="tradecode != null">
+        tradeCode = #{tradecode,jdbcType=VARCHAR},
+      </if>
+      <if test="tradename != null">
+        tradeName = #{tradename,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fuce.minhang_area.pojo.Trade">
+    update trade
+    set areaId = #{areaid,jdbcType=INTEGER},
+      flg = #{flg,jdbcType=INTEGER},
+      lat = #{lat,jdbcType=DOUBLE},
+      lng = #{lng,jdbcType=DOUBLE},
+      tradeCode = #{tradecode,jdbcType=VARCHAR},
+      tradeName = #{tradename,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
