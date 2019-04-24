@@ -6,10 +6,7 @@ import com.fuce.minhang_area.service.SysTradeDataService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,11 +27,16 @@ public class SysTradeDataController {
         List<TradeDataDTO> tradeDataDTO = sysTradeDataService.getAll();
         return tradeDataDTO;
     }
-    @GetMapping("/getWithPge")
+    @GetMapping("/getWithPage")
     public PageInfo getWithPage(@RequestParam(required = false,defaultValue = "1")Integer pageNum){
         Page<TradeDataDTO> page = sysTradeDataService.getWithPage(pageNum);
         PageInfo<TradeDataDTO> pageInfo = page.toPageInfo();
         return pageInfo;
     }
+    @PostMapping("/delete")
+    public void delete(@RequestParam Integer id){
+        sysTradeDataService.delete(id);
+    }
+
 
 }

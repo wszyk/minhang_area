@@ -3,11 +3,12 @@ package com.fuce.minhang_area.dao;
 import com.fuce.minhang_area.DTO.TradeDataDTO;
 import com.fuce.minhang_area.pojo.TradeData;
 import com.github.pagehelper.Page;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface TradeDataMapper {
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(@Param("id") Integer id);
 
     int insert(TradeData record);
 

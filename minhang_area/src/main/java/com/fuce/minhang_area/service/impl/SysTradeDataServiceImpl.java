@@ -31,4 +31,9 @@ public class SysTradeDataServiceImpl implements SysTradeDataService {
         Page<TradeDataDTO> tradeDatas =  tradeDataMapper.selectWithPage();
         return tradeDatas;
     }
+
+    @Override
+    public void delete(Integer id) {
+        tradeDataMapper.deleteByPrimaryKey(id);
+    }
 }

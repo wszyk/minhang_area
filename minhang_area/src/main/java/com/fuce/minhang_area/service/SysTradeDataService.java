@@ -9,4 +9,6 @@ public interface SysTradeDataService {
     List<TradeDataDTO> getAll();
 
     Page<TradeDataDTO> getWithPage(Integer pageNum);
+
+    void delete(Integer id);
 }

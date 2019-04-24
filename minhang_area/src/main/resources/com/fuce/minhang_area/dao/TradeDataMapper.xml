@@ -22,6 +22,11 @@
     id, areaId, avgPrice, createTime, dateTime, flg, industry, mids, sales, salesNums, 
     tradeCode, tradeId, tradeName, mcc
   </sql>
+<!--  deleteByPrimaryKey-->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from trade_data
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
 <!--  selectWithPage-->
   <select id="selectWithPage"  resultMap="BaseResultMap">
     SELECT td.id, td.areaId, a.areaName, td.tradeId, td.tradeCode, td.tradeName, td.dateTime,
@@ -41,10 +46,7 @@
     from trade_data
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from trade_data
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
+
   <insert id="insert" parameterType="com.fuce.minhang_area.pojo.TradeData">
     insert into trade_data (id, areaId, avgPrice, 
       createTime, dateTime, flg, 
