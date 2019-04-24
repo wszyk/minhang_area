@@ -17,10 +17,18 @@
     <result column="tradeName" jdbcType="VARCHAR" property="tradename" />
     <result column="mcc" jdbcType="VARCHAR" property="mcc" />
   </resultMap>
+
   <sql id="Base_Column_List">
     id, areaId, avgPrice, createTime, dateTime, flg, industry, mids, sales, salesNums, 
     tradeCode, tradeId, tradeName, mcc
   </sql>
+<!--  getAll-->
+  <select id="getAll"  resultMap="BaseResultMap">
+ SELECT td.id, td.areaId, a.areaName, td.tradeId, td.tradeCode, td.tradeName, td.dateTime,
+  td.industry, td.sales, td.salesNums, td.mids, td.avgPrice, td.flg, td.createTime, td.mcc
+  FROM trade_data td, area a
+  </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

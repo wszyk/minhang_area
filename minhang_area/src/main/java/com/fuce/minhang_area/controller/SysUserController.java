@@ -27,26 +27,56 @@ public class SysUserController {
     @Value("${token.aes.secret}")
     private String aesSecret;
 
+    /**
+     * 根据用户id 查询用户
+     * @param id
+     * @return
+     */
     @GetMapping("/getById")
     public User getById(@RequestParam Integer id){
         User user = sysUserService.getById(id);
         return user;
     }
+
+    /**
+     * 分页展示用户列表
+     * @param pageNum
+     * @return
+     */
     @GetMapping("/getWithPage")
     public PageInfo getWithPage(@RequestParam(required = false,defaultValue = "1")Integer pageNum){
         Page<User>users = sysUserService.getWithPage(pageNum);
         PageInfo<User> pageInfo = users.toPageInfo();
         return pageInfo;
     }
+
+    /**
+     * 新增用户
+     * @param userAddUpDTO
+     * @return
+     */
     @PostMapping("/add")
     public Integer add(@RequestBody UserAddUpDTO userAddUpDTO){
         Integer userId = sysUserService.add(userAddUpDTO);
         return userId;
     }
+
+    /**
+     * 修改用户
+     * @param userAddUpDTO
+     */
     @PostMapping("/update")
     public void update(@RequestBody UserAddUpDTO userAddUpDTO){
         sysUserService.update(userAddUpDTO);
     }
+
+    /**
+     * 用户登陆
+     * @param loginname
+     * @param password
+     * @return
+     * @throws Exception
+     */
     @GetMapping("/login")
     public String login(String loginname, String password) throws Exception {
         User user = sysUserService.getByUsername(loginname);
@@ -62,6 +92,11 @@ public class SysUserController {
         String token = AES.encrypt(loginInfoStr,aesSecret);//AES加密
         return token;
     }
+
+    /**
+     * 删除用户
+     * @param id
+     */
     @PostMapping("/delete")
     public void delete(@RequestParam Integer id) {
         sysUserService.delete(id);
