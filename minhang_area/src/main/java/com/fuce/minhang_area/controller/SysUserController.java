@@ -11,12 +11,10 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.util.DigestUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
-import java.util.List;
 
 @RestController
 @RequestMapping("/sys/user")
@@ -25,7 +23,6 @@ import java.util.List;
 public class SysUserController {
     @Autowired
     private SysUserService sysUserService;
-
     //注入aes秘钥
     @Value("${token.aes.secret}")
     private String aesSecret;
