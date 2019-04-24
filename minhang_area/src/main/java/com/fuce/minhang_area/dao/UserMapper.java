@@ -1,6 +1,10 @@
 package com.fuce.minhang_area.dao;
 
 import com.fuce.minhang_area.pojo.User;
+import com.github.pagehelper.Page;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
@@ -14,4 +18,11 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    User getById(@Param("id") Integer id);
+
+    Page<User> selectWithPage();
+
+    User getByLoginname(String loginname);
+
 }
