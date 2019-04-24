@@ -2,6 +2,7 @@ package com.fuce.minhang_area.service.impl;
 
 import com.fuce.minhang_area.DTO.TradeDataDTO;
 import com.fuce.minhang_area.dao.TradeDataMapper;
+import com.fuce.minhang_area.pojo.TradeData;
 import com.fuce.minhang_area.service.SysTradeDataService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -36,4 +37,10 @@ public class SysTradeDataServiceImpl implements SysTradeDataService {
     public void delete(Integer id) {
         tradeDataMapper.deleteByPrimaryKey(id);
     }
+
+    @Override
+    public void insert(TradeData tradeData) {
+        tradeDataMapper.insert(tradeData);
+    }
+
 }

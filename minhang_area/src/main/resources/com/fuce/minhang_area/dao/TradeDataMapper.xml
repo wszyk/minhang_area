@@ -47,7 +47,7 @@
     where id = #{id,jdbcType=INTEGER}
   </select>
 
-  <insert id="insert" parameterType="com.fuce.minhang_area.pojo.TradeData">
+  <insert id="insert" parameterType="com.fuce.minhang_area.pojo.TradeData" useGeneratedKeys="true" keyProperty="id" >
     insert into trade_data (id, areaId, avgPrice, 
       createTime, dateTime, flg, 
       industry, mids, sales, 
