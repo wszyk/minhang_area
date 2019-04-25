@@ -8,12 +8,14 @@ import com.fuce.minhang_area.service.SysTradeDataService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/sys/tradedata")
+@Transactional
 public class SysTradeDataController {
     @Autowired
     private SysTradeDataService sysTradeDataService;
@@ -43,11 +45,6 @@ public class SysTradeDataController {
     @PostMapping("/add")
     public void add(@RequestBody TradeData tradeData,@RequestParam String[] ids){
         sysTradeDataService.insert(tradeData);
-        Area area = new Area();
-        for(String s:ids){
-            area.setId(tradeData.getId());
-            sysAreaService.insert(area);
-        }
     }
 
 
