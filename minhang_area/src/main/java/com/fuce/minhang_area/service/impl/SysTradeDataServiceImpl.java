@@ -43,4 +43,9 @@ public class SysTradeDataServiceImpl implements SysTradeDataService {
         tradeDataMapper.insert(tradeData);
     }
 
+    @Override
+    public void update(TradeData tradeData) {
+        tradeDataMapper.updateByPrimaryKey(tradeData);
+    }
+
 }

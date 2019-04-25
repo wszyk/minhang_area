@@ -14,4 +14,6 @@ public interface SysTradeDataService {
     void delete(Integer id);
 
     void insert(TradeData tradeData);
+
+    void update(TradeData tradeData);
 }

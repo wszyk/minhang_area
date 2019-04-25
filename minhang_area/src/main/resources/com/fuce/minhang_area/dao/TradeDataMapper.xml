@@ -22,6 +22,24 @@
     id, areaId, avgPrice, createTime, dateTime, flg, industry, mids, sales, salesNums, 
     tradeCode, tradeId, tradeName, mcc
   </sql>
+  <!--  updateByPrimaryKey-->
+  <update id="updateByPrimaryKey" parameterType="com.fuce.minhang_area.pojo.TradeData">
+    update trade_data
+    set areaId = #{areaid,jdbcType=INTEGER},
+      avgPrice = #{avgprice,jdbcType=DOUBLE},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      dateTime = #{datetime,jdbcType=TIMESTAMP},
+      flg = #{flg,jdbcType=INTEGER},
+      industry = #{industry,jdbcType=VARCHAR},
+      mids = #{mids,jdbcType=INTEGER},
+      sales = #{sales,jdbcType=DOUBLE},
+      salesNums = #{salesnums,jdbcType=INTEGER},
+      tradeCode = #{tradecode,jdbcType=VARCHAR},
+      tradeId = #{tradeid,jdbcType=INTEGER},
+      tradeName = #{tradename,jdbcType=VARCHAR},
+      mcc = #{mcc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
 <!--  deleteByPrimaryKey-->
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from trade_data
@@ -46,7 +64,7 @@
     from trade_data
     where id = #{id,jdbcType=INTEGER}
   </select>
-
+<!--  insert-->
   <insert id="insert" parameterType="com.fuce.minhang_area.pojo.TradeData" useGeneratedKeys="true" keyProperty="id" >
     insert into trade_data (id, areaId, avgPrice, 
       createTime, dateTime, flg, 
@@ -195,21 +213,5 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.fuce.minhang_area.pojo.TradeData">
-    update trade_data
-    set areaId = #{areaid,jdbcType=INTEGER},
-      avgPrice = #{avgprice,jdbcType=DOUBLE},
-      createTime = #{createtime,jdbcType=TIMESTAMP},
-      dateTime = #{datetime,jdbcType=TIMESTAMP},
-      flg = #{flg,jdbcType=INTEGER},
-      industry = #{industry,jdbcType=VARCHAR},
-      mids = #{mids,jdbcType=INTEGER},
-      sales = #{sales,jdbcType=DOUBLE},
-      salesNums = #{salesnums,jdbcType=INTEGER},
-      tradeCode = #{tradecode,jdbcType=VARCHAR},
-      tradeId = #{tradeid,jdbcType=INTEGER},
-      tradeName = #{tradename,jdbcType=VARCHAR},
-      mcc = #{mcc,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+
 </mapper>

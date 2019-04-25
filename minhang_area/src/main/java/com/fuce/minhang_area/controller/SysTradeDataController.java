@@ -43,8 +43,12 @@ public class SysTradeDataController {
         sysTradeDataService.delete(id);
     }
     @PostMapping("/add")
-    public void add(@RequestBody TradeData tradeData,@RequestParam String[] ids){
+    public void add(@RequestBody TradeData tradeData){
         sysTradeDataService.insert(tradeData);
+    }
+    @PostMapping("/update")
+    public void update(@RequestBody TradeData tradeData){
+        sysTradeDataService.update(tradeData);
     }
 
 
