@@ -23,7 +23,7 @@ public class SysTradeDataController {
     private SysAreaService sysAreaService;
 
     /**
-     * 查询所有商圈数据
+     * 查询所有商圈数据管理
      * @return
      */
 
@@ -32,20 +32,41 @@ public class SysTradeDataController {
         List<TradeDataDTO> tradeDataDTO = sysTradeDataService.getAll();
         return tradeDataDTO;
     }
+
+    /**
+     * 商圈数据管理 分页
+     * @param pageNum
+     * @return
+     */
     @GetMapping("/getWithPage")
     public PageInfo getWithPage(@RequestParam(required = false,defaultValue = "1")Integer pageNum){
         Page<TradeDataDTO> page = sysTradeDataService.getWithPage(pageNum);
         PageInfo<TradeDataDTO> pageInfo = page.toPageInfo();
         return pageInfo;
     }
+
+    /**
+     * 删除
+     * @param id
+     */
     @PostMapping("/delete")
     public void delete(@RequestParam Integer id){
         sysTradeDataService.delete(id);
     }
+
+    /**
+     * 添加
+     * @param tradeData
+     */
     @PostMapping("/add")
     public void add(@RequestBody TradeData tradeData){
         sysTradeDataService.insert(tradeData);
     }
+
+    /**
+     * 修改
+     * @param tradeData
+     */
     @PostMapping("/update")
     public void update(@RequestBody TradeData tradeData){
         sysTradeDataService.update(tradeData);
