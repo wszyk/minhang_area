@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/src/excle")
+@RequestMapping("/excle")
 public class BaseController {
     /**
      * 上传文件
@@ -26,8 +26,9 @@ public class BaseController {
         String uuid = UUID.randomUUID().toString();
         String type = file.getContentType().split("-")[1];
         String fileName = String.format("%s.%s", uuid, type);
-        String url = String.format("src/excle/%s", fileName);
+        String url = String.format("excle/%s", fileName);
         FileUtil.storeFile(file.getBytes(),url);
         return fileName;
     }
+
 }
