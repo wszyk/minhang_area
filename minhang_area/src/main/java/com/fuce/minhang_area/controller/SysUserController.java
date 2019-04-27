@@ -8,6 +8,7 @@ import com.fuce.minhang_area.pojo.User;
 import com.fuce.minhang_area.service.SysUserService;
 import com.fuce.minhang_area.utils.AES;
 import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -43,9 +44,11 @@ public class SysUserController {
      * @param pageNum
      * @return
      */
-    @GetMapping("/getWithPage")
-    public PageInfo getWithPage(@RequestParam(required = false,defaultValue = "1")Integer pageNum){
-        Page<User>users = sysUserService.getWithPage(pageNum);
+    @GetMapping("/searchWithPage")
+    public PageInfo getWithPage(@RequestParam(required = false,defaultValue = "1")Integer pageNum,
+                                @RequestParam(required = false,defaultValue = "")String keyword){
+        PageHelper.startPage(pageNum,3);
+        Page<User>users = sysUserService.searchWithPage(keyword);
         PageInfo<User> pageInfo = users.toPageInfo();
         return pageInfo;
     }

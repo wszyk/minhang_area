@@ -4,8 +4,6 @@ import com.fuce.minhang_area.pojo.User;
 import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
-
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -23,6 +21,7 @@ public interface UserMapper {
 
     Page<User> selectWithPage();
 
-    User getByLoginname(String loginname);
+    User getByLoginname(@Param("loginname") String loginname);
 
+    Page<User> searchWithPage(@Param("keyword") String keyword);
 }

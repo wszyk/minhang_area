@@ -18,7 +18,7 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
 <!--  getByLoginname-->
-  <select id="getByLoginname"  parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="getByLoginname" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from user
@@ -44,11 +44,11 @@
       #{loginname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER}
       )
   </insert>
-<!--  selectWithPage-->
-  <select id="selectWithPage" resultMap="BaseResultMap">
+<!--  searchWithPage-->
+  <select id="searchWithPage" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from user
+    from user where loginname like '%${keyword}%'
   </select>
 <!--  getById-->
   <select id="getById"  resultMap="BaseResultMap">

@@ -5,14 +5,12 @@ import com.fuce.minhang_area.dao.UserMapper;
 import com.fuce.minhang_area.pojo.User;
 import com.fuce.minhang_area.service.SysUserService;
 import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 
 @Service
 @Transactional
@@ -29,12 +27,6 @@ public class SysUserServiceImpl implements SysUserService {
         return userMapper.getById(id);
     }
 
-    @Override
-    public Page<User> getWithPage(Integer pageNum) {
-        PageHelper.startPage(pageNum,userPageSize);
-        Page<User> users = userMapper.selectWithPage();
-        return users;
-    }
     //封装添加商品的方法
     private User setUserWithDTO(UserAddUpDTO userAddUpDTO){
         User user = new User();
@@ -68,6 +60,11 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     public void delete(Integer id) {
         userMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public Page<User> searchWithPage(String keyword) {
+        return userMapper.searchWithPage(keyword);
     }
 
 }
