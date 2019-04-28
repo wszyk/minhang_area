@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="assets/css/elementui.css">
+        <title>List</title>
+</head>
+
+<body>
+
+        <div id="app">
+                <div id='loginout' style="text-align: right;">
+                        <el-button>loginout</el-button>
+                </div>
+                <el-container>
+                        <el-aside width="200px">
+                                <el-menu default-active="1" class="el-menu-vertical-demo">
+                                        <el-submenu index="1">
+                                                <template slot="title"><i class="el-icon-menu"></i>商圈管理</template>
+
+                                                <el-menu-item onclick="f1()">商圈管理</el-menu-item>
+                                                <el-menu-item onclick="f2()">商圈数据管理</el-menu-item>
+                                                <el-menu-item onclick="f3()">商圈行业数据</el-menu-item>
+                                                <el-menu-item onclick="f4()">商圈消费人群标签统计</el-menu-item>
+                                                <el-menu-item onclick="f5()">商圈共享客流统计</el-menu-item>
+                                                <el-menu-item onclick="f6()">商圈刷卡来源地统计</el-menu-item>
+                                        </el-submenu>
+                                        <el-submenu index="2">
+                                                <template slot="title"><i class="el-icon-message"></i>用户管理</template>
+
+                                                <el-menu-item>
+                                                        <i class="el-icon-setting"></i>
+                                                        <span slot="title" onclick="f7()">用户管理</span>
+                                                </el-menu-item>
+                                        </el-submenu>
+                                </el-menu>
+                        </el-aside>
+                        <el-main>
+
+                        </el-main>
+                </el-container>
+        </div>
+
+        <script src="assets/js/axios.min.js"></script>
+        <script src="assets/js/vue.js"></script>
+        <script src="assets/js/elementui.js"></script>
+        <script src="viewmodels/Dashboard.js"></script>
+
+        <script src="assets/js/jquery.min.js"></script>
+        <script type="text/javascript">
+                function f1() {
+                        alert(111);
+                }
+                function f2() {
+                        alert(111);
+                }
+                function f3() {
+                        alert(111);
+                }
+                function f4() {
+                        alert(111);
+                }
+                function f5() {
+                        alert(111);
+                }
+                function f6() {
+                        alert(111);
+                }
+
+                function f7() {
+                        location.href = "Userlist.html";
+
+                }
+        </script>
+
+</body>
+
+</html>
