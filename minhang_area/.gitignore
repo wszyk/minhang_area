@@ -1,10 +1,9 @@
 HELP.md
-/target/
-/excle/
-.idea
+target/
+.idea/
 .mvn/
 mvnw
-mvnw,cmd
+mvnw.cmd
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###

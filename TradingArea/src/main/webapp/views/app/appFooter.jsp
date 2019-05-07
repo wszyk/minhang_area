@@ -1,1 +1,0 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%><%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><div style="height: 34px; padding: 5px 0;" class="layui-footer app-footer">	<div class="layui-main">    <p>© 2017 复旦大学城市发展研究院<c:if test="${loginUser.role != 2}"> 联系方式：18516711300</c:if>，电子邮件：zhangyina@fudan.edu.cn</p>  </div>	</div>
