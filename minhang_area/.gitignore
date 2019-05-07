@@ -4,6 +4,7 @@ target/
 .mvn/
 mvnw
 mvnw.cmd
+.mymetadata
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
