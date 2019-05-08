@@ -39,7 +39,7 @@ layui.use([ 'laypage', 'layer', 'form' ], function() {
 			var itemHtml = '<tr>';
 			itemHtml += '<td><input data-id="'+_object.id+'" type="checkbox" name="" lay-skin="primary"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe626;</i></div></td>';
 			itemHtml += '<td>'+_object.loginName+'</td>';
-			itemHtml += '<td>'+_object.password+'</td>';
+			// itemHtml += '<td>'+_object.password+'</td>';
 			var role = '普通用户';
 			if(_object.role == 0) {
 				role = '超级管理员';
