@@ -52,6 +52,8 @@ public class BaseControl {
 			Iterator iter = multiRequest.getFileNames();
 			while (iter.hasNext()) {
 				// 一次遍历所有文件
+
+
 				MultipartFile file = multiRequest.getFile(iter.next()
 						.toString());
 				if (file != null) {
